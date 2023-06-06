@@ -22,10 +22,7 @@ Syntax file is a bit messy need to clean up
 
 ## Release Notes
 
-### 1.0.0
-
-**Initial Release**
-- Syntax Highlighting
+Check [CHANGELOG](./changelog.md) for the release notes
 
 ## Credits
 
