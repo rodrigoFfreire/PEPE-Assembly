@@ -51,7 +51,15 @@
 			  },
 			  {
 				"name": "constant.numeric.hex.pepe-asm",
-				"match": "\\b([0-9][0-9a-f]{1,3}|0[a-f][0-9a-f]{1,3})h\\b"
+				"match": "(?i)\\b([0-9][0-9a-f]{1,3}|0[a-f][0-9a-f]{1,3})h\\b"
+			  },
+			  {
+				"match": "\\b([A-Z,_,0-9]+)\\s+([eE][qQ][uU])\\b",
+				"captures": {
+					"1":{
+						"name" : "variable.other.constant"
+					}
+				}
 			  }
 			]
 		},
