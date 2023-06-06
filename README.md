@@ -9,7 +9,8 @@ For now only syntax highlighting is available (not sure if I will add more featu
 ## Instructions
 
 ### Installation
-- Download the repository and put it in `~/.vscode/extensions`
+- Download the repository and put it in `~/.vscode/extensions` there should now be a `pepe-assembly` folder in there
+- Go to the installed extensions and make sure the extension is there and enabled
 <br></br>
 ### Configuration
 - Create a `.asm` file
