@@ -82,7 +82,7 @@
 				"match": "(?i)\\b(setc?|edma|clrc?|ddma|cplc?)\\b"
 			  },
 			  {
-				"match": "(?i)\\b((j(nn?|n?z|n?p|n?c|n?v|n?a|eq|ne|l[t,e]|g[t,e]|mp))(\\.n?[zcnopi])?)(\\s+)(.?\\w+)\\b",
+				"match": "(?i)\\b((j(nn?|n?z|n?p|n?c|n?v|n?a|eq|ne|l[t,e]|g[t,e]|mp)|callf?)(\\.n?[zcnopi])?)(\\s+)(.?\\w+)\\b",
 				"captures": {
 				  "1": {
 					"name": "keyword.control.mnemonic.jmp"
@@ -94,7 +94,7 @@
 			  },
 			  {
 				"name": "keyword.control.mnemonic.other",
-				"match": "(?i)\\b(retf?|callf?|rfe|nop|swe|push|pop|swap)\\b"
+				"match": "(?i)\\b(retf?|rfe|nop|swe|push|pop|swap)\\b"
 			  }
 			]
 		},
