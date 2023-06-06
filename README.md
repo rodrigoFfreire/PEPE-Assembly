@@ -27,6 +27,6 @@ Syntax file is a bit messy need to clean up
 **Initial Release**
 - Syntax Highlighting
 
-# Credits
+## Credits
 
 Heavily borrowed from the [P4 VSCode Extension Language](https://github.com/diogotcorreia/P4-Assembly) by _Diogo Correia_
