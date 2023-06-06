@@ -14,7 +14,7 @@ For now only syntax highlighting is available (not sure if I will add more featu
 ### Configuration
 - Create a `.asm` file
 - Open the command pallete with `CTRL + SHIFT + P` or `CMD + SHIFT + P` and type: `Change Language Mode`
-- Select `PEPE Assembly`
+- Click on  `Configure File Association for .asm` and Select `PEPE Assembly`
 
 ## Known Issues
 
