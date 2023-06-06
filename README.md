@@ -29,4 +29,4 @@ Syntax file is a bit messy need to clean up
 
 ## Credits
 
-Heavily borrowed from the [P4 VSCode Extension Language](https://github.com/diogotcorreia/P4-Assembly) by _Diogo Correia_
+Most of the structure for the syntax file borrowed from the [P4 VSCode Extension Language](https://github.com/diogotcorreia/P4-Assembly) by _Diogo Correia_
