@@ -14,6 +14,9 @@
 		  "include": "#constants"
 		},
 		{
+		  "include": "#entities"
+		},
+		{
 		  "include": "#comments"
 		},
 		{
@@ -59,10 +62,6 @@
 				"match": "(?i)\\b(mov|movb|movp)\\b"
 			  },
 			  {
-				"name": "keyword.operator.word.mnemonic.special.data-transfer",
-				"match": "(?i)\\b(swap|push|pop)\\b"
-			  },
-			  {
 				"name": "keyword.operator.word.mnemonic.general-purpose.binary-arithmetic",
 				"match": "(?i)\\b(addc?|subb?|cmp|mul|div|mod|neg)\\b"
 			  },
@@ -83,11 +82,7 @@
 				"match": "(?i)\\b(setc?|edma|clrc?|ddma|cplc?)\\b"
 			  },
 			  {
-				"name": "keyword.operator.word.mnemonic.general-purpose.control",
-				"match": "(?i)\\bj(nn?|n?z|n?p|n?c|n?v|n?a|eq|ne|l[t,e]|g[t,e])\\b"
-			  },
-			  {
-				"match": "(?i)\\b((br|jmp)(\\.n?[zcnopi])?)(\\s+)(.?\\w+)\\b",
+				"match": "(?i)\\b((j(nn?|n?z|n?p|n?c|n?v|n?a|eq|ne|l[t,e]|g[t,e]|mp))(\\.n?[zcnopi])?)(\\s+)(.?\\w+)\\b",
 				"captures": {
 				  "1": {
 					"name": "keyword.control.mnemonic.jmp"
@@ -99,7 +94,7 @@
 			  },
 			  {
 				"name": "keyword.control.mnemonic.other",
-				"match": "(?i)\\b(retf?|callf?|rfe|nop|swe)\\b"
+				"match": "(?i)\\b(retf?|callf?|rfe|nop|swe|push|pop|swap)\\b"
 			  }
 			]
 		},
@@ -114,65 +109,107 @@
 		"preprocessor": {
 			"patterns": [
 			  {
-				"name": "meta.preprocessor.equ",
-				"match": "(?i)\\b(equ)\\b"
+				"name" : "meta.preprocessor.default.pepe-asm",
+				"match": "(?i)\\b(equ|place)\\b",
+				"captures": {
+					"0": {
+						"name": "meta.preprocessor"
+					}
+				}
 			  },
 			  {
-				"name": "meta.preprocessor.place",
-				"match": "(?i)\\b(place)\\b"
-			  },
-			  {
-				"name": "meta.preprocessor.word",
-				"match": "(?i)\\b(word)\\b"
-			  },
-			  {
-				"name": "meta.preprocessor.byte",
-				"match": "(?i)\\b(byte)\\b"
-			  },
-			  {
-				"name": "meta.preprocessor.table",
-				"match": "(?i)\\b(table)\\b"
-			  },
-			  {
-				"name": "meta.preprocessor.stack",
-				"match": "(?i)\\b(stack)\\b"
-			  },
-			  {
-				"name": "meta.preprocessor.process",
-				"match": "(?i)\\b(process)\\b"
-			  },
-			  {
-				"name": "meta.preprocessor.yield",
-				"match": "(?i)\\b(yield)\\b"
-			  },
-			  {
-				"name": "meta.preprocessor.wait",
-				"match": "(?i)\\b(wait)\\b"
-			  },
-			  {
-				"name": "meta.preprocessor.lock",
-				"match": "(?i)\\b(lock)\\b"
+				"name" : "meta.preprocessor.special.pepe-asm",
+				"match": "(?i)\\b(word|byte|table|stack|process|yield|wait|lock)\\b",
+				"captures": {
+					"0" : {
+						"name": "storage.modifier.memory-address"
+					}
+				}
 			  }
 			]
 		},
 		"strings": {
 			"patterns": [
 			  {
-				"name": "string.quoted.single.p4",
+				"name": "string.quoted.single.pepe-asm",
 				"begin": "'",
 				"beginCaptures": {
 				  "0": {
-					"name": "punctuation.definition.string.begin.p4"
+					"name": "punctuation.definition.string.begin.pepe-asm"
 				  }
 				},
 				"end": "'",
 				"endCaptures": {
 				  "0": {
-					"name": "punctuation.definition.string.end.p4"
+					"name": "punctuation.definition.string.end.pepe-asm"
 				  }
 				}
 			  }
 			]
-		  }
+		},
+		"entities": {
+			"patterns": [
+				{
+					"match": "(\\.\\.@)((?:[[:alpha:]_?](?:[[:alnum:]_$#@~.?]*)))(?:(\\:)?|\\b)",
+					"name": "entity.name.function.pepe-asm",
+					"captures": {
+						"1": {
+						"name": "punctuation.separator.pepe-asm storage.modifier.pepe-asm"
+						},
+						"2": {
+						"name": "entity.name.function.special.pepe-asm"
+						},
+						"3": {
+						"name": "punctuation.separator.pepe-asm"
+						}
+					}
+					},
+				{
+					"match": "(?:(\\.)?|\\b)((?:[[:alpha:]_?](?:[[:alnum:]_$#@~.?]*)))(?:(\\:))",
+					"name": "entity.name.function.pepe-asm",
+					"captures": {
+						"1": {
+						"name": "punctuation.separator.pepe-asm storage.modifier.pepe-asm"
+						},
+						"2": {
+						"name": "entity.name.function.pepe-asm"
+						},
+						"3": {
+						"name": "punctuation.separator.pepe-asm"
+						}
+					}
+					},
+				{
+					"match": "(\\.)([0-9]+(?:[[:alnum:]_$#@~.?]*))(?:(\\:)?|\\b)",
+					"name": "entity.name.function.pepe-asm",
+					"captures": {
+						"1": {
+						"name": "punctuation.separator.pepe-asm storage.modifier.pepe-asm"
+						},
+						"2": {
+						"name": "entity.name.function.pepe-asm"
+						},
+						"3": {
+						"name": "punctuation.separator.pepe-asm"
+						}
+					}
+					},
+				{
+					"match": "(?:(\\.)?|\\b)([0-9$@~](?:[[:alnum:]_$#@~.?]*))(?:(\\:))",
+					"name": "invalid.illegal.entity.name.function.pepe-asm",
+					"captures": {
+						"1": {
+						"name": "punctuation.separator.pepe-asm storage.modifier.pepe-asm"
+						},
+						"2": {
+						"name": "invalid.illegal.entity.name.function.pepe-asm"
+						},
+						"3": {
+						"name": "punctuation.separator.pepe-asm"
+						}
+					}
+				}
+			]	
+    	}
 	}
 }
