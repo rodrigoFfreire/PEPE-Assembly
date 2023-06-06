@@ -1,0 +1,51 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "PEPE Assembly",
+	"scopeName": "source.asm",
+	"fileTypes": ["asm"],
+	"patterns": [
+		{
+		  "include": "#registers"
+		},
+		{
+		  "include": "#mnemonics"
+		},
+		{
+		  "include": "#constants"
+		},
+		{
+		  "include": "#entities"
+		},
+		{
+		  "include": "#support"
+		},
+		{
+		  "include": "#comments"
+		},
+		{
+		  "include": "#preprocessor"
+		},
+		{
+		  "include": "#strings"
+		}
+	  ],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.pepe-asm",
+				"match": "\\b(if|while|for|return)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.pepe-asm",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.pepe-asm",
+					"match": "\\\\."
+				}
+			]
+		}
+	}
+}

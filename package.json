@@ -1,0 +1,25 @@
+{
+  "name": "pepe-assembly",
+  "displayName": "PEPE Assembly",
+  "description": "PEPE Assembly Language",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.78.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "pepe-asm",
+      "aliases": ["PEPE Assembly", "pepe-asm"],
+      "extensions": [".asm"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "pepe-asm",
+      "scopeName": "source.asm",
+      "path": "./syntaxes/pepe-asm.tmLanguage.json"
+    }]
+  }
+}
