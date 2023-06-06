@@ -22,7 +22,7 @@ Syntax file is a bit messy need to clean up
 
 ## Release Notes
 
-Check [CHANGELOG](./changelog.md) for the release notes
+Check [CHANGELOG](./CHANGELOG.md) for the release notes
 
 ## Credits
 
