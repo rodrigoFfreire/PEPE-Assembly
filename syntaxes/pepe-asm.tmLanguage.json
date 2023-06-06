@@ -82,13 +82,13 @@
 				"match": "(?i)\\b(setc?|edma|clrc?|ddma|cplc?)\\b"
 			  },
 			  {
-				"match": "(?i)\\b((j(nn?|n?z|n?p|n?c|n?v|n?a|eq|ne|l[t,e]|g[t,e]|mp)|callf?)(\\.n?[zcnopi])?)(\\s+)(.?\\w+)\\b",
+				"match": "(?i)\\b(j(nn?|n?z|n?p|n?c|n?v|n?a|eq|ne|l[t,e]|g[t,e]|mp)|callf?)(\\s+)(\\w+)\\b",
 				"captures": {
 				  "1": {
-					"name": "keyword.control.mnemonic.jmp"
+					"name": "keyword.control.mnemonic"
 				  },
-				  "5": {
-					"name": "entity.name.function.pepe-asm"
+				  "4": {
+					"name": "entity.name.function"
 				  }
 				}
 			  },
@@ -112,7 +112,7 @@
 				"name" : "meta.preprocessor.default.pepe-asm",
 				"match": "(?i)\\b(equ|place)\\b",
 				"captures": {
-					"0": {
+					"1": {
 						"name": "meta.preprocessor"
 					}
 				}
@@ -121,7 +121,7 @@
 				"name" : "meta.preprocessor.special.pepe-asm",
 				"match": "(?i)\\b(word|byte|table|stack|process|yield|wait|lock)\\b",
 				"captures": {
-					"0" : {
+					"1" : {
 						"name": "storage.modifier.memory-address"
 					}
 				}
